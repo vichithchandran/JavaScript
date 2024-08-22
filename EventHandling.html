@@ -1,0 +1,101 @@
+<!-- In JavaScript, event handling is the process of managing user interactions with a webpage or web application, such as clicking a button, typing in a text field, moving the mouse, or submitting a form.
+
+1)Event:
+JavaScript Events are actions or occurrences that happen in the browser. They can be triggered by various user interactions or by the browser itself.
+
+Common events include mouse clicks, keyboard presses, page loads, and form submissions. Event handlers are JavaScript functions that respond to these events, allowing developers to create interactive web applications.
+
+Syntax:
+<HTML-element Event-Type = "Action to be performed">
+
+1) onclick: Triggered when an element is clicked.
+2) onmouseover:	Fired when the mouse pointer moves over an element.
+3) onmouseout:	Occurs when the mouse pointer leaves an element.
+4) onkeydown:	Fired when a key is pressed down.
+5) onkeyup:	Fired when a key is released.
+6) onchange:	Triggered when the value of an input element changes.
+7) onload:	Occurs when a page has finished loading.
+8) onsubmit:	Fired when a form is submitted.
+9) onfocus:	Occurs when an element gets focus.
+10) onblur:	Fired when an element loses focus.
+
+2) Event Handler (Event Listener):
+An event handler is a function that is executed in response to a particular event.
+You can attach an event handler to an element to specify what should happen when the event occurs.
+
+Event Object:
+When an event is triggered, the browser creates an Event object, which contains information about the event, such as the target element, the type of event, and any additional data (e.g., mouse coordinates for a click event).
+You can access the Event object within the event handler to get details about the event.
+-->
+
+<!--
+Inline Event Handling (HTML Attribute):
+You can directly attach an event handler to an HTML element using an attribute like onclick.
+-->
+<!-- <button onclick="alert('Button clicked!')">Click me</button> -->
+
+<!--
+Using addEventListener (Recommended):
+The most flexible and preferred way to handle events is using the addEventListener method. 
+This method allows you to attach multiple event handlers to a single element and separate your JavaScript code from your HTML structure.
+
+syntax:
+element.addEventListener(event, handler, options);
+
+event: The type of event (e.g., 'click', 'keydown').
+handler: The function to be executed when the event occurs.
+options (optional): Additional options, such as whether the event should be captured or if it should only trigger once.
+-->
+<button onclick=>Click me</button> 
+
+<script>
+  const button1 = document.querySelector('button');
+  button1.addEventListener('click', function() {
+      alert('Button clicked!');
+  });
+</script>
+
+<!-- 
+Removing Event Listeners:
+You can remove an event listener using the removeEventListener method if you no longer want the event handler to be executed.
+-->
+ <button id="myButton">Click Me</button>
+
+<script>
+ const button = document.querySelector('#myButton');
+function handleClick() {
+  alert('Button clicked!');
+}
+
+button.addEventListener('click', handleClick);
+button.removeEventListener('click', handleClick);
+</script>
+
+<!--JavaScript Event Handlers-->
+<button onclick="myFunction()">Click me</button>
+<script>
+    // JavaScript function to handle the click event
+    function myFunction() {
+        alert("Button clicked!");
+    }
+</script>
+
+
+<script>
+  let a=0;
+        let b=0;
+        let c=0;
+        function changeBackground() {
+            let x=document.getElementById('bg');
+            x.style.backgroundColor='rgb('+a+', '+b+', '+c+')';
+            a+=100;
+            b+=a+50;
+            c+=b+70;
+            if(a>255) a=a-b;
+            if(b>255) b=a;
+            if(c>255) c=b;
+        }      
+</script>
+
+<h4>The input box will change color when UP arrow key is pressed</h4>
+<input id="bg" onkeyup="changeBackground()" placeholder="write something" style="color:#fff">

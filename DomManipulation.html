@@ -1,0 +1,165 @@
+<!--
+DOM manipulation allows developers to interact and modify the structure, style, and content of web pages dynamically.
+
+The below list contains different methods to manipulate DOM:
+
+1)DOM Element Selectors
+2)DOM content manipulators
+3)DOM element creators
+4)DOM CSS manipulators
+
+1)DOM Element Selectors:
+There are multiple methods available in DOM to select the HTML elements and manipulate them as listed below:
+
+querySelector() method: The querySelector( ) method is used to select the first element that matches the specified selector provided as an argument.
+querySelectorAll() method: The querySelectorAll() method returns a NodeList which contains all elements that match the selector within the document.
+getElementById( ) method: The getElementId() method is used to select a single element using its Id.
+getElementByClassName( ): The getElementsByClassName() method in JavaScript is used to select elements in the HTML document that have a specific class name.
+getElementByTagName() method: The getElementsByTagName() method is used to select elements using the specified tag name.
+getElementByName() method: The getElementsByName() method is used to select elements that have a specific name attribute. This method returns a NodeList of elements with the specified name.
+-->
+
+
+<html>
+<body style="text-align: center;">
+    <div id="target">
+        <h1>Hello</h1>
+        <h2 class="example">
+            This is a sample sub heading
+        </h2>
+        <p>
+            This is sample paragraph1
+        </p>
+        <p>
+            This is sample paragraph2
+        </p>
+        <input type="text" name="username" 
+            id="userName">
+    </div>
+    <script>
+        const queryS = 
+              document.querySelector(".example");
+        const gebi = 
+              document.getElementById("target");
+        const gebcn = 
+              document.getElementsByClassName('example');
+        const gebtn = 
+              document.getElementsByTagName('p');
+        const gebn = 
+              document.getElementsByName('username');
+        const querySAll = 
+              document.querySelectorAll("p");
+        console.log(queryS);
+        console.log(gebi);
+        console.log(gebcn);
+        console.log(gebn);
+        console.log(gebtn);
+        console.log(querySAll);
+    </script>
+</body>
+
+</html>
+
+<!-- 
+2) DOM content manipulators:
+textContent: The textContent property is used to set and get the text content and it’s descendants.
+innerHTML: The innerHTML property is used to get and set the text and HTML inside an HTML element.
+innerText: The innerText property represents the rendered text content of a node and its descendants. It is aware of the elements which will be rendered and ignores the hidden elements.
+ -->
+
+<html>
+<body style="text-align: center;">
+    <h4>Hello</h4>
+    <h5>Hello</h5>
+    <h6>Hello</h6>
+    <script>
+        const tcontentexample = 
+            document.querySelector("h4");
+        const innerhtmlexample = 
+            document.querySelector("h5");
+        const innertextexample = 
+            document.querySelector("h6");
+        tcontentexample.textContent = 
+            "Hello Geeks!- textContent";
+        innerhtmlexample.innerHTML = 
+            "Hello Geeks!- innerHTML";
+        innertextexample.innerText = 
+            "Hello Geeks! - innerText";
+    </script>
+</body>
+
+</html>
+
+<!--
+3) DOM element creators:
+createElement() method: The createElement() method is used to create an element in the HTML DOM document
+appendChild() method: The appendChild() method is used to append a node to a list of child nodes of a specified parent node.
+createTextNode() method: The createTextNode() method is used to create a text node.
+-->
+<html>
+<body style="text-align: center;">
+    <h1>Hello 1</h1>
+    <h2>Hello 2</h2>
+    <h3>Hello 3</h3>
+    <script>
+        const para = 
+            document.createElement("p");
+        para.textContent = 
+            "This paragraph is created using createElement!";
+
+        const para1 = 
+            document.createTextNode("p");
+        para1.textContent = 
+            "This paragraph is created using createTextNode";
+
+        document.body.appendChild(para);
+        document.body.appendChild(para1);
+    </script>
+</body>
+
+</html>
+
+<!--
+4) DOM CSS manipulators:
+style: CSS can be manipulated using (Syntax : element.style.propertyName) which helps us to dynamically manipulate styles and access the inline styles of an element.
+cssText: CSS can be directly manipulated using the cssText property of the style object to set multiple inline styles at a time. It is similar to how we add inline CSS to an element.
+classList: As Inline CSS is not recommended, mostly we use classList property to dynamically add and remove CSS classes which are defined in external CSS.
+-->
+<html>
+
+<head>
+    <style>
+        .classList {
+            color: white;
+            background-color: black;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello 1</h1>
+    <h2>Hello 2</h2>
+    <h3>Hello 3</h3>
+    <script>
+        const tcontentexample = 
+            document.querySelector("h1");
+        const innerhtmlexample = 
+            document.querySelector("h2");
+        const innertextexample = 
+            document.querySelector("h3");
+        tcontentexample.style.
+            color = "white";
+        tcontentexample.style.
+            backgroundColor = "black";
+        tcontentexample.style.
+            textAlign = "center";
+        innerhtmlexample.style.cssText = 
+        `color: white;  
+        background-color: black;  
+        text-align:center`;
+        innertextexample.classList.add("classList");
+    </script>
+</body>
+
+</html>
